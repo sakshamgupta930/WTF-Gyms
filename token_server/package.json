@@ -1,0 +1,17 @@
+{
+  "name": "wtf_100ms_token_server",
+  "version": "1.0.0",
+  "description": "Tiny Node.js Express server to mock 100ms authentications for Guru & Trainer Pulse",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "private": true
+}
