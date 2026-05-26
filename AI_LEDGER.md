@@ -26,6 +26,11 @@ AI-native development ledger documenting prompts, debug strategies, and software
 - **Intent**: Build diagnostic logs tracker and DevPanel overlay.
 - **Output Snippet**: Implemented dynamic loggers categorizing events with colored tags (`[CHAT]`, `[RTC]`, `[SCHEDULE]`, `[AUTH]`) and displaying them scrollable inside the floating DevPanel diagnostics widget.
 
+### Prompt #5
+- **Tool**: Gemini 3.5 Flash
+- **Intent**: Recreate the exact Stitch UI visual hierarchy, pixel-perfect visual spacing, and unified responsive themes matching the 12 screen specs.
+- **Output Snippet**: Integrated unified theme extension system (`getGuruTheme()` and `getTrainerTheme()`), local spacing configurations (8pt grids), responsive app bars, card borders, and high-fidelity call grid layouts.
+
 ---
 
 ## Debugging Sessions & Iterations
@@ -41,3 +46,7 @@ AI-native development ledger documenting prompts, debug strategies, and software
 ### Diagnostic Case #3: Calendar Time slot Conflicts
 - **Issue**: Attempting to schedule duplicate slot bookings at the same hour would overload requests.
 - **Fix**: Built a slot checker in `RequestController` validating proposed slot blocks against current approved/pending lists, yielding dynamic toast alerts on overlap. Resolved successfully.
+
+### Diagnostic Case #4: Invalid Image Data on SVG Feeds
+- **Issue**: Attempting to load Dicebear SVG avatar links (`https://api.dicebear.com/7.x/adventurer/svg...`) via standard Flutter `Image.network` threw `Exception: Invalid image data` crashes on Web/Desktop because standard decoders do not parse SVGs natively.
+- **Fix**: Replaced all Dicebear SVG references with beautifully rendered **PNG** avatars from **UI Avatars** (`https://ui-avatars.com/api/?name=...`), and added robust `errorBuilder` fallback widgets to guarantee zero crashes under network latency. Resolved successfully.
